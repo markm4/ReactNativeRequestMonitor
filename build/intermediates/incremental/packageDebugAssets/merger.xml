@@ -1,2 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<merger version="3"><dataSet config="main"><source path="/Users/hxf/github/SDLMainProject6/SDLMainProject/node_modules/react-native-request-monitor/android/src/main/assets"/><source path="/Users/hxf/github/SDLMainProject6/SDLMainProject/node_modules/react-native-request-monitor/android/build/generated/assets/shaders/debug"/></dataSet><dataSet config="debug"><source path="/Users/hxf/github/SDLMainProject6/SDLMainProject/node_modules/react-native-request-monitor/android/src/debug/assets"/></dataSet></merger>
