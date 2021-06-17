@@ -1,0 +1,75 @@
+//plugins {
+//    id 'com.android.library'
+//}
+
+apply plugin: 'com.android.library'
+apply plugin: 'com.github.dcendents.android-maven'
+
+//apply plugin: 'com.github.dcendents.android-maven' //this way we can find the android-maven in jcenter
+group='com.github.markm4' //this is your github name
+
+def safeExtGet(prop, fallback) {
+    rootProject.ext.has(prop) ? rootProject.ext.get(prop) : fallback
+}
+
+android {
+
+    compileSdkVersion safeExtGet('compileSdkVersion', 28)
+    buildToolsVersion safeExtGet('buildToolsVersion', '28.0.3')
+
+    defaultConfig {
+        minSdkVersion safeExtGet('minSdkVersion', 16)
+        targetSdkVersion safeExtGet('targetSdkVersion', 22)
+        versionCode 1
+        versionName "1.0"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation "com.facebook.react:react-native:${safeExtGet('reactNativeVersion', '+')}"
+    implementation "com.android.support:appcompat-v7:${rootProject.ext.supportLibVersion}"
+    implementation 'org.greenrobot:eventbus:3.1.1'
+    implementation 'com.android.support:recyclerview-v7:25.3.1'
+//    implementation "com.android.support:recyclerview-v7:${rootProject.ext.supportLibVersion}"
+}
+
+//afterEvaluate {
+//    publishing {
+//        publications {
+//            // Creates a Maven publication called "release".
+//            release(MavenPublication) {
+//                // Applies the component for the release build variant.
+//                from components.release
+//
+//                // You can then customize attributes of the publication as shown below.
+//                groupId = 'com.hxf.rnrequestmonitortest'
+//                artifactId = 'requestmonitortest'
+//                version = '1.0'
+//            }
+//            // Creates a Maven publication called “debug”.
+//            debug(MavenPublication) {
+//                // Applies the component for the debug build variant.
+//                from components.debug
+//
+//                groupId = 'com.hxf.rnrequestmonitortest'
+//                artifactId = 'requestmonitortest-debug'
+//                version = '1.0'
+//            }
+//        }
+//    }
+//}

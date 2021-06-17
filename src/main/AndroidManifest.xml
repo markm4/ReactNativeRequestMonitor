@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.hxf.request.Monitor">
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+
+    <application>
+        <activity android:name=".activity.RequestDetailActivity"
+            android:launchMode="singleTask"
+            android:taskAffinity="com.sdl.requestmonitor"></activity>
+
+        <service
+            android:name=".service.RequestService"
+            android:enabled="true"
+            android:exported="true" />
+
+        <activity
+            android:name=".activity.RequestListActivity"
+            android:launchMode="singleTask"
+            android:taskAffinity="com.sdl.requestmonitor" />
+    </application>
+</manifest>
